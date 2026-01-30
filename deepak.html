@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Romantic Hearts for You</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ff69b4, #ffb6c1);
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 2em;
+            animation: float 5s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-10vh) rotate(360deg); }
+        }
+        #message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="message">()chut paglu bishnu❤️</div>
+    <script>
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(heart);
+            
+            // Remove after animation
+            setTimeout(() => heart.remove(), 5000);
+        }
+        
+        // Generate hearts every 300ms
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
